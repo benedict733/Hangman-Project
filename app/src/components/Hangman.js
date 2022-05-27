@@ -2,16 +2,19 @@ import React, { useState, useEffect, useCallback } from "react";
 import { randomWord } from "./Words";
 
 // import hangman images here:
-import image1 from "../assets/1.png";
-import image2 from "../assets/2.png";
-import image3 from "../assets/3.png";
-import image4 from "../assets/3.png";
+import initial_state from "../assets/initial_state.svg";
+import state1 from "../assets/state1.svg";
+import state2 from "../assets/state2.svg";
+import state3 from "../assets/state3.svg";
+import state4 from "../assets/state4.svg";
+import state5 from "../assets/state5.svg";
+import state6 from "../assets/state6.svg";
 
 // List of alphabets in the english language
 const alphabetList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 // List of images
-const imageList = [image1, image2, image3, image4]
+const imageList = [initial_state, state1, state2, state3, state4, state5, state6];
 
 const Hangman = () => {
   const [chosenWord, setChosenWord] = useState("");
