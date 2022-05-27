@@ -1,19 +1,47 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 // import hangman images here:
-import image1 from "../assets/1.png"
-import image2 from "../assets/2.png"
-import image3 from "../assets/3.png"
-import image4 from "../assets/3.png"
+import image1 from "../assets/1.png";
+import image2 from "../assets/2.png";
+import image3 from "../assets/3.png";
+import image4 from "../assets/3.png";
 
+//import word list:
+import { randomWord } from "./Words";
 
-const alphabetList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-const wordList = ['apple', 'banana', 'cherry', 'durian']
+const alphabetList = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+// const wordList = ['apple', 'banana', 'cherry', 'durian']
 
-const imageList = [image1, image2, image3, image4]
+const imageList = [image1, image2, image3, image4];
 
 const Hangman = () => {
-
   const [chosenWord, setChosenWord] = useState("");
   const [keyedLetter, setKeyedLetter] = useState("");
   const [correctLetters, setCorrectLetters] = useState([]);
@@ -22,46 +50,53 @@ const Hangman = () => {
 
   // Randomly choose a word, resets the correct letters and wrong letters
   const chooseWord = () => {
-    setChosenWord(
-      (chosenWord) => wordList[Math.floor(Math.random() * wordList.length)]
-    );
+    setChosenWord((chosenWord) => randomWord());
     setCorrectLetters((correctLetters) => []);
     setWrongLetters((wrongLetters) => []);
-  }
+  };
 
-  const nextImage = () => { 
-    setImageID((currentID) => currentID + 1); 
+  const nextImage = () => {
+    setImageID((currentID) => currentID + 1);
   };
 
   // On screen start, choose a word
-  useEffect(() => { chooseWord(); }, []);
+  useEffect(() => {
+    chooseWord();
+  }, []);
 
-  const checkLetters = useCallback((letter) => {
-    
-    if (correctLetters.includes(letter) || wrongLetters.includes(letter)) {
-      // letter repeated
-    }
-    if (chosenWord.split("").includes(letter) && !correctLetters.includes(letter)) {
-      // letter is correct
-      setCorrectLetters((correctLetters) => [...correctLetters, letter]);
-    }
-    if (!chosenWord.split("").includes(letter) && !wrongLetters.includes(letter)) {
-      // letter is wrong
-      setWrongLetters((wrongLetters) => [...wrongLetters, letter]);
-      nextImage();
-    }
+  const checkLetters = useCallback(
+    (letter) => {
+      if (correctLetters.includes(letter) || wrongLetters.includes(letter)) {
+        // letter repeated
+      }
+      if (
+        chosenWord.split("").includes(letter) &&
+        !correctLetters.includes(letter)
+      ) {
+        // letter is correct
+        setCorrectLetters((correctLetters) => [...correctLetters, letter]);
+      }
+      if (
+        !chosenWord.split("").includes(letter) &&
+        !wrongLetters.includes(letter)
+      ) {
+        // letter is wrong
+        setWrongLetters((wrongLetters) => [...wrongLetters, letter]);
+        nextImage();
+      }
 
-    // winning decision
-    if (correctLetters.length === chosenWord.length) {
-      alert("you win")
-    } 
+      // winning decision
+      if (correctLetters.length === chosenWord.length) {
+        alert("you win");
+      }
 
-    // losing decision
-    if (imageID === 5) {
-      alert("you lose")
-    }
-
-  }, [chosenWord, correctLetters, imageID, wrongLetters]);
+      // losing decision
+      if (imageID === 5) {
+        alert("you lose");
+      }
+    },
+    [chosenWord, correctLetters, imageID, wrongLetters]
+  );
 
   return (
     <div>
