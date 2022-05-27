@@ -10,9 +10,6 @@ import image4 from "../assets/3.png";
 // List of alphabets in the english language
 const alphabetList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-// List of words
-const wordList = ['apple', 'banana', 'cherry', 'durian']
-
 // List of images
 const imageList = [image1, image2, image3, image4]
 
