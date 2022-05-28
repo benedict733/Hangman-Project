@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { randomWord } from "./Words";
+import "./Hangman.css";
 
 // import hangman images here:
 import initial_state from "../assets/initial_state.svg";
@@ -11,17 +12,52 @@ import state5 from "../assets/state5.svg";
 import state6 from "../assets/state6.svg";
 
 // List of alphabets in the english language
-const alphabetList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+const alphabetList = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 // List of images
-const imageList = [initial_state, state1, state2, state3, state4, state5, state6];
+const imageList = [
+  initial_state,
+  state1,
+  state2,
+  state3,
+  state4,
+  state5,
+  state6,
+];
 
 const Hangman = () => {
   const [chosenWord, setChosenWord] = useState("");
   const [keyedLetter, setKeyedLetter] = useState("");
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [alphabet, setAlphabet] = useState('');
+  const [alphabet, setAlphabet] = useState("");
   const [imageID, setImageID] = useState(0);
 
   // Randomly choose a word, resets the correct letters and wrong letters
@@ -32,8 +68,8 @@ const Hangman = () => {
   };
 
   // Sets the current image frame to the next image frame
-  const nextImage = () => { 
-    setImageID((currentID) => currentID + 1); 
+  const nextImage = () => {
+    setImageID((currentID) => currentID + 1);
   };
 
   // On screen start, choose a word
@@ -42,20 +78,26 @@ const Hangman = () => {
   }, []);
 
   // Checks the current letters
-  const checkLetters = useCallback((letter) => {
-    
-    if (correctLetters.includes(letter) || wrongLetters.includes(letter)) {
-      // letter repeated
-    }
-    if (chosenWord.split("").includes(letter) && !correctLetters.includes(letter)) {
-      // letter is correct
-      setCorrectLetters((correctLetters) => [...correctLetters, letter]);
-    }
-    if (!chosenWord.split("").includes(letter) && !wrongLetters.includes(letter)) {
-      // letter is wrong
-      setWrongLetters((wrongLetters) => [...wrongLetters, letter]);
-      nextImage();
-    }
+  const checkLetters = useCallback(
+    (letter) => {
+      if (correctLetters.includes(letter) || wrongLetters.includes(letter)) {
+        // letter repeated
+      }
+      if (
+        chosenWord.split("").includes(letter) &&
+        !correctLetters.includes(letter)
+      ) {
+        // letter is correct
+        setCorrectLetters((correctLetters) => [...correctLetters, letter]);
+      }
+      if (
+        !chosenWord.split("").includes(letter) &&
+        !wrongLetters.includes(letter)
+      ) {
+        // letter is wrong
+        setWrongLetters((wrongLetters) => [...wrongLetters, letter]);
+        nextImage();
+      }
 
       // winning decision
       if (correctLetters.length === chosenWord.length) {
@@ -74,7 +116,7 @@ const Hangman = () => {
   const alphabetButtonHandler = (i) => {
     setAlphabet((alphabet) => i);
     checkLetters(i);
-  }
+  };
 
   return (
     <div>
@@ -88,7 +130,7 @@ const Hangman = () => {
         {[
           ...chosenWord.split("").map((letter) => {
             return correctLetters.includes(letter) ? letter : "";
-          })
+          }),
         ].map((letter, index) => (
           <div className="letters" key={index}>
             {letter}
@@ -97,7 +139,7 @@ const Hangman = () => {
       </div>
       <br />
       <div className="alphabets-container">
-          {/* TODO: Add alphabets here. Task is just to map the given alphabets */}
+        {/* TODO: Add alphabets here. Task is just to map the given alphabets */}
       </div>
     </div>
   );
