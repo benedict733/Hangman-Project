@@ -1,13 +1,13 @@
 // import React, { useState } from "react";
 import React from "react"
 import '../index.css';
-import main_man from "../Img/main_man.svg";
+import main_man from "../assets/main_man.svg";
 // import main_text from "../Img/main_text.png"
 
 // import Popup from "./Popup";
 import {useState} from "react";
-import cry from "../Img/cry.svg"
-import win from "../Img/win.svg"
+import cry from "../assets/cry.svg"
+import win from "../assets/win.svg"
 
 import {Modal,Button,CloseButton,ButtonGroup} from 'react-bootstrap'  
 export default function Main() {
