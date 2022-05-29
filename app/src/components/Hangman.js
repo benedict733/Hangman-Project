@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { randomWord } from "./Words";
 import "./Hangman.css";
+import { Helmet } from "react-helmet";
+// import Keyboard from "./keyboard/createKeyboard.js"
 
 // import hangman images here:
 import initial_state from "../assets/initial_state.svg";
@@ -10,36 +12,6 @@ import state3 from "../assets/state3.svg";
 import state4 from "../assets/state4.svg";
 import state5 from "../assets/state5.svg";
 import state6 from "../assets/state6.svg";
-
-// List of alphabets in the english language
-const alphabetList = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
 
 // List of images
 const imageList = [
@@ -124,7 +96,7 @@ const Hangman = () => {
         <h1> Hangman </h1>
       </div>
       <div className="hangman-image">
-        <img src={imageList[imageID]} alt="hangman" />
+        <img id="image" src={imageList[imageID]} alt="hangman" />
       </div>
       <div className="letters-container">
         {[
@@ -138,8 +110,10 @@ const Hangman = () => {
         ))}
       </div>
       <br />
-      <div className="alphabets-container">
-        {/* TODO: Add alphabets here. Task is just to map the given alphabets */}
+      <div id="keyboard">
+        <Helmet>
+          <script src="/keyboard/script.js" type="text/javascript" />
+        </Helmet>
       </div>
     </div>
   );
