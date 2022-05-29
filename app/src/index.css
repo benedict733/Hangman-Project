@@ -47,7 +47,7 @@ body {
   font-family: Inter, sans-serif;
   /* height: 100vh; */
   /* background-color: #282D35; */
-  background: url('./Img/bk.jpg') no-repeat;     
+  background: url('./assets/bk.jpg') no-repeat;     
   /* background-size: 100%; */
   height: auto;
 }
