@@ -125,6 +125,7 @@ const Hangman = (difficulty) => {
 
       // losing decision
       if (imageID === 5) {
+        setTimeout(600);
         loseShow();
       }
     },
