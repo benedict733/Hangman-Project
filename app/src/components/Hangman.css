@@ -11,11 +11,18 @@ body {
   top: 100px;
   width: 40%;
   height: auto;
+  z-index: -2;
 }
-
-
+/* .letters-container{
+width: 50%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto; 
+}*/
 #keyboard {
   padding-top: 16px;
+    width: 50%;
+    margin-left: 45%;
 }
 
 #keyboard .line {
@@ -46,21 +53,36 @@ body {
   background-color: rgb(92, 92, 92) !important;
 }
 
-.letterContainer{
-  border:1px solid black;
-  width:280px;
-  height:2em;
-  align-items: center;
-  justify-content: center;
+.header {
+  font-family: 'Press Start 2P';
+  font-weight: bold;
+  color:#5D0E14;
+  font-size: 50px;
+  margin-top: 10%;
+  margin-left: 40%;
 }
-  
+
+.letterContainer{
+  margin-top: 10%;
+  width: 50%;
+  display: flex;
+  margin-left: 45%;  
+  margin-right: auto;
+}
+.inside-letter-container{  
+display: inline-flex;
+margin-left: auto;
+margin-right: auto;
+}
+
 .letters{
-  width:1.5em;
-  height:1.5em;
-  border-bottom:1px solid black;
-  font-size: 12px; 
-  margin:1px;
-  padding:1px;
+    width: 50px;
+    height: 70px;
+    border-bottom: 5px solid #5D0E14;
+    font-size: 50px;
+    margin: 1px;
+    padding: 1px;
+    color:#5D0E14;
 }
 
 .alphabets{
@@ -73,5 +95,8 @@ body {
   height:2em;
   margin:0.5em;
   border: none;
+  background-color: #fc8ea0;
+  font-size: 24px;
+color: white;
 }
   

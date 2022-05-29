@@ -140,12 +140,14 @@ const Hangman = (difficulty) => {
   return (
     <div>
       <div className="header">
-        <h1> Hangman </h1>
+        Guess The Word
       </div>
       <div className="hangman-image">
         <img id="image" src={imageList[imageID]} alt="hangman" />
       </div>
-      <div className="letters-container">
+      <div className="letterContainer">
+        <div className="inside-letter-container">
+
         {[
           ...chosenWord.split("").map((letter) => {
             return correctLetters.includes(letter) ? letter : "";
@@ -155,6 +157,7 @@ const Hangman = (difficulty) => {
             {letter}
           </div>
         ))}
+        </div>
       </div>
       <br />
       <div id="keyboard">
