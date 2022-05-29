@@ -25,6 +25,12 @@ const imageList = [
   state6,
 ];
 
+const alphabets = [
+  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+  "a", "s", "d", "f", "g", "h", "j", "k", "l",
+  "z", "x", "c", "v", "b", "n", "m"
+]
+
 const Hangman = (difficulty) => {
 
   const [chosenWord, setChosenWord] = useState("");
@@ -113,7 +119,21 @@ const Hangman = (difficulty) => {
       </div>
       <br />
       <div id="keyboard">
-          { createKeyboard() }
+        {alphabets.map((i, k) => (
+                <button
+                  onClick={() => alphabetButtonHandler(i)}
+                  key={k}
+                  className={`alphabet  ${
+                    correctLetters.includes(i)
+                      ? "correct"
+                      : wrongLetters.includes(i)
+                      ? "wrong"
+                      : ""
+                  }`}
+                >
+                  {i}
+                </button>
+              ))}
       </div>
     </div>
   );

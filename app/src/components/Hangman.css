@@ -45,3 +45,33 @@ body {
 #keyboard .key.clicked.locked {
   background-color: rgb(92, 92, 92) !important;
 }
+
+.letterContainer{
+  border:1px solid black;
+  width:280px;
+  height:2em;
+  align-items: center;
+  justify-content: center;
+}
+  
+.letters{
+  width:1.5em;
+  height:1.5em;
+  border-bottom:1px solid black;
+  font-size: 12px; 
+  margin:1px;
+  padding:1px;
+}
+
+.alphabets{
+  border: 1px solid black;
+}
+
+.alphabet{
+  border-radius:50%;
+  width:2em;
+  height:2em;
+  margin:0.5em;
+  border: none;
+}
+  

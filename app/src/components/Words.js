@@ -1140,11 +1140,11 @@ const hardWordList = [
 ];
 
 function randomWord(difficulty) {
-  if (difficulty.equals("easy")) {
+  if (difficulty === "easy") {
     return easyWordList[Math.floor(Math.random() * easyWordList.length)];
-  } else if (difficulty.equals("medium")) {
+  } else if (difficulty === "medium") {
     return mediumWordList[Math.floor(Math.random() * mediumWordList.length)];
-  } else if (difficulty.equals("hard")) {
+  } else if (difficulty === "hard") {
     return hardWordList[Math.floor(Math.random() * hardWordList.length)];
   } else {
     return mediumWordList[Math.floor(Math.random() * mediumWordList.length)];
