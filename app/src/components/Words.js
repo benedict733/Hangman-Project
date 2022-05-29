@@ -863,4 +863,20 @@ function randomWord() {
   return wordList[Math.floor(Math.random() * wordList.length)];
 }
 
+const easyWordList = []
+const mediumWordList = []
+const difficultWordList = []
+
+function randomEasyWord() {
+  return easyWordList[Math.floor(Math.random() * easyWordList.length)]
+}
+
+function randomMediumWord() {
+  return mediumWordList[Math.floor(Math.random() * mediumWordList.length)]
+}
+
+function randomDifficultWord() {
+  return difficultWordList[Math.floor(Math.random() * difficultWordList.length)]
+}
+
 export { randomWord };

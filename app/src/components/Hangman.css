@@ -4,3 +4,44 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+#image {
+  position: absolute;
+  left: 50px;
+  top: 100px;
+  width: 40%;
+  height: auto;
+}
+
+
+#keyboard {
+  padding-top: 16px;
+}
+
+#keyboard .line {
+  display: flex;
+  width: max-content;
+  margin: 0 auto;
+}
+
+#keyboard .key {
+  background-color: white;
+  padding: 16px;
+  margin: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#keyboard .key.locked {
+  background-color: darkgray !important;
+  cursor: default !important;
+}
+
+#keyboard .key.clicked {
+  background-color: rgb(1,87,155);
+  box-shadow: none;
+}
+
+#keyboard .key.clicked.locked {
+  background-color: rgb(92, 92, 92) !important;
+}
