@@ -1,15 +1,14 @@
-// import React, { useState } from "react";
-import React from "react"
+import React, { useState } from "react";
 import '../index.css';
 import main_man from "../assets/main_man.svg";
 // import main_text from "../Img/main_text.png"
 
 // import Popup from "./Popup";
-import {useState} from "react";
 import cry from "../assets/cry.svg"
 import win from "../assets/win.svg"
 
 import {Modal,Button,CloseButton,ButtonGroup} from 'react-bootstrap'  
+
 export default function Main() {
     // const [buttonPopup,setButtonPopup] = useState(true);
   //lose modal
@@ -29,11 +28,15 @@ export default function Main() {
   const instructionClose = () => setInstruction(false);
   const instructionShow = () => setInstruction(true);
 
-    //start modal
-    const [showStart, setStart] = useState(false);
+  //start modal
+  const [showStart, setStart] = useState(false);
 
-    const startClose = () => setStart(false);
-    const startShow = () => setStart(true);
+  const startClose = () => setStart(false);
+  const startShow = () => setStart(true);
+    
+  // set difficulty to be passed on to hangman component
+  // default difficulty: medium
+  const [difficulty, setDifficulty] = useState("medium");
 
     return (
         <div>
@@ -149,9 +152,9 @@ export default function Main() {
                     <div>
  
                   <ButtonGroup vertical size="lg" className="mb-2">
-                    <Button variant="outline-success" id="easy">Easy</Button>
-                    <Button variant="outline-warning" id="medium">Medium</Button>
-                    <Button variant="outline-danger" id="hard">Hard</Button>
+                    <Button variant="outline-success" id="easy" onClick={() => setDifficulty("easy")}>Easy</Button>
+                    <Button variant="outline-warning" id="medium" onClick={() => setDifficulty("medium")}>Medium</Button>
+                    <Button variant="outline-danger" id="hard" onClick={() => setDifficulty("hard")}>Hard</Button>
                   </ButtonGroup>
                   <Button className="popupStartBtn">Start</Button>
                     <br />

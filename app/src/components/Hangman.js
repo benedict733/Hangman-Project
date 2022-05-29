@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { randomWord } from "./Words";
 import "./Hangman.css";
 import { Helmet } from "react-helmet";
+import { keyboard, qwerty, createKeyboard } from "./keyboard/script.js";
 // import Keyboard from "./keyboard/createKeyboard.js"
 
 // import hangman images here:
@@ -24,7 +25,8 @@ const imageList = [
   state6,
 ];
 
-const Hangman = () => {
+const Hangman = (difficulty) => {
+
   const [chosenWord, setChosenWord] = useState("");
   const [keyedLetter, setKeyedLetter] = useState("");
   const [correctLetters, setCorrectLetters] = useState([]);
@@ -34,7 +36,7 @@ const Hangman = () => {
 
   // Randomly choose a word, resets the correct letters and wrong letters
   const chooseWord = () => {
-    setChosenWord((chosenWord) => randomWord());
+    setChosenWord((chosenWord) => randomWord(difficulty));
     setCorrectLetters((correctLetters) => []);
     setWrongLetters((wrongLetters) => []);
   };
@@ -111,9 +113,7 @@ const Hangman = () => {
       </div>
       <br />
       <div id="keyboard">
-        <Helmet>
-          <script src="/keyboard/script.js" type="text/javascript" />
-        </Helmet>
+          { createKeyboard() }
       </div>
     </div>
   );

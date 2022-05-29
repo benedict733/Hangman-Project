@@ -1,12 +1,12 @@
-const keyboard = document.getElementById('keyboard')
+export const keyboard = document.getElementById('keyboard')
 
-const qwerty = [
-    ['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
+export const qwerty = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['y', 'x', 'c', 'v', 'b', 'n', 'm']
+    ['z', 'x', 'c', 'v', 'b', 'n', 'm']
 ]
 
-function createKeyboard() {
+export function createKeyboard() {
     qwerty.forEach(line => {
         const row = document.createElement('div')
         row.classList.add('row')
@@ -26,4 +26,4 @@ function createKeyboard() {
     })
 }
 
-createKeyboard()
+// createKeyboard()
